@@ -40,7 +40,7 @@ def sample_responses(inpTxt,tcount,tlimit):
   defaultIntros =["Hey! I'm here to chat, in case you were feeling lonely.",\
                 "Feeling lonely? I'm down to chat.",\
                "Here to chat. I won't judge you for talking to an inanimate object.",\
-                "All by yourself? I'm here to chat."\
+                "All by yourself? I'm here to chat.",\
                  "Need to pretend like you're texting someone? I'm here to help."]
   
   user_msg = str(inpTxt).lower()
