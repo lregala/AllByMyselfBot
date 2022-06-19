@@ -13,7 +13,7 @@ have been spent, whichever comes first.
 /help - list of available commands    
 /run - use a different engine for response, from 0-3. Higher is better. Default 0.
        <br>&emsp;&emsp;&emsp;example: "/run 3 create a shopping list of 5 items" <br>
-       Keep in mind that the better engines are more expensive.<br>
+       &emsp;&emsp;&emsp;Keep in mind that the better engines are more expensive.<br>
 /start - start the bot            
 /stop - stop the bot            
 /usage - see token usage and days remaining
