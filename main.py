@@ -79,22 +79,26 @@ def usage(message):
 
 @bot.message_handler(commands=['run'])
 def run(message):
-  query = message.text.split(" ", 2)
-  level = int(query[1])
-  msg = query[2]
-  tokens = rp.countTokens(query)
-  
-  if expiryCheck(current_date,expiry_date,t_usg,max_tokens):
-    bot.send_message(message.chat.id,exp_msg)
-  
+  space_count = message.text.count(' ')
+  if space_count < 2:
+    bot.send_message(message.chat.id,"Invalid entry!")
   else:
-    if level not in [0,1,2,3]:
-      bot.send_message(message.chat.id,"Invalid setting!")
+    query = message.text.split(" ", 2)
+    level = int(query[1])
+    msg = query[2]
+    tokens = rp.countTokens(query)
+    
+    if expiryCheck(current_date,expiry_date,t_usg,max_tokens):
+      bot.send_message(message.chat.id,exp_msg)
+    
     else:
-      print(level)
-      print(msg)
-      if rp.getBotStatus():
-        bot.send_message(message.chat.id,rp.sample_responses(msg,tokens,token_limit,level))
+      if level not in [0,1,2,3]:
+        bot.send_message(message.chat.id,"Invalid setting!")
+      else:
+        print(level)
+        print(msg)
+        if rp.getBotStatus():
+          bot.send_message(message.chat.id,rp.sample_responses(msg,tokens,token_limit,level))
 
 
 @bot.message_handler(func=lambda message: True)
