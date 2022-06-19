@@ -66,6 +66,8 @@ def sample_responses(inpTxt,tcount,tlimit):
     try:
       resp = oai.gpt3(inpTxt,tlimit,0)
       r_tcount=countTokens(resp)
+      print(r_tcount)
+      print(tcount)
       print(resp)
       
       updateTokenUsage(tcount+r_tcount)

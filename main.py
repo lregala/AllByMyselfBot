@@ -1,6 +1,5 @@
 import os
 import telebot
-import math
 import responses as rp
 
 from keep_alive import keep_alive
@@ -20,7 +19,7 @@ exp_msg = "AI Bot has expired! Thanks for checking me out!"
 
   
 #Max tokens per query
-token_limit = 50
+token_limit = 100
 t_usg = rp.getTokenUsage()
 max_tokens=300000
 
