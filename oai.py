@@ -7,7 +7,7 @@ OAI_KEY = os.environ['openai_key']
 def gpt3(txt,tokenLimit,aiEngine=0):
   openai.api_key = OAI_KEY
   
-  #engine list
+  #engines
   aiEngineList = ("text-ada-001","text-babbage-001","text-curie-001","text-davinci-002")
 
   response = openai.Completion.create(

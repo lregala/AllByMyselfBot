@@ -91,6 +91,28 @@ def responder(message):
     print(query)
 
     if rp.getBotStatus():
-      bot.send_message(message.chat.id,rp.sample_responses(query,tokens,token_limit))
+      bot.send_message(message.chat.id,rp.sample_responses(query,tokens,token_limit,0))
+
+bot.polling()
+
+
+@bot.message_handler(commands=['run'])
+def run(message):
+  query = message.text.split(" ", 2)
+  level = int(query[1])
+  msg = query[2]
+  tokens = rp.countTokens(query)
+  
+  if expiryCheck(current_date,expiry_date,t_usg,max_tokens):
+    bot.send_message(message.chat.id,exp_msg)
+  
+  else:
+    if level not in [0,1,2,3]:
+      bot.send_message(message.chat.id,"Invalid setting!")
+    else:
+      print(level)
+      print(msg)
+      if rp.getBotStatus():
+        bot.send_message(message.chat.id,rp.sample_responses(msg,tokens,token_limit,level))
 
 bot.polling()

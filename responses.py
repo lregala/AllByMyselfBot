@@ -36,7 +36,7 @@ def getTokenUsage():
   else:
     db["usedTokens"]=5917 #starting used tokens out of 300,000
     
-def sample_responses(inpTxt,tcount,tlimit):
+def sample_responses(inpTxt,tcount,tlimit,ai_level):
   # included sample responses to not waste tokens
   
   defaultReplies = ["...","I didn't get that.","Say again?","Try again.","Hmm, I didn't catch that."]
@@ -64,7 +64,7 @@ def sample_responses(inpTxt,tcount,tlimit):
   else:
     #use gpt3 here
     try:
-      resp = oai.gpt3(inpTxt,tlimit,0)
+      resp = oai.gpt3(inpTxt,tlimit,ai_level)
       r_tcount=countTokens(resp)
       print(r_tcount)
       print(tcount)
@@ -92,6 +92,8 @@ def intro():
 def helper():
     helpstr="Available commands:\
             \n/help - list of available commands\
+            \n/run - use a different engine for response, from 0-3. Higher is better. Default 0.\
+            \n   example: \'/run 3 create a shopping list of 5 items\'\
             \n/start - start the bot\
             \n/stop - stop the bot\
             \n/usage - see token usage and days remaining"
