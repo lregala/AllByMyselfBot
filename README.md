@@ -10,7 +10,9 @@ The bot is up and running <a href="https://t.me/allbymyself_bot">here.</a>
 have been spent, whichever comes first.
 
 <b>Available commands:</b>            
-/help - list of available commands            
+/help - list of available commands    
+/run - use a different engine for response, from 0-3. Higher is better. Default 0.
+       <br>&emsp;&emsp;&emsp;example: "/run 3 create a shopping list of 5 items" <br>
 /start - start the bot            
 /stop - stop the bot            
 /usage - see token usage and days remaining
