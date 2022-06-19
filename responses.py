@@ -93,7 +93,7 @@ def helper():
     helpstr="Available commands:\
             \n/help - list of available commands\
             \n/run - use a different engine for response, from 0-3. Higher is better.\
-            \nDefault 0. example: run 3 create a shopping list out of 5 items.'\
+            \nDefault 0. example: run 3 create a shopping list out of 5 items.\
             \n/start - start the bot\
             \n/stop - stop the bot\
             \n/usage - see token usage and days remaining"
