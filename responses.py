@@ -36,7 +36,7 @@ def sample_responses(inpTxt,tcount,tlimit):
   # included sample responses to not waste tokens
   
   defaultReplies = ["...","I didn't get that.","Say again?","Try again.","Hmm, I didn't catch that."]
-  defaultComplaints = ["You talk too much!","blah blah blah","k","*yawn*"]
+  defaultComplaints = ["You talk too much!","blah blah blah","k","*yawn*","tl;dr"]
   defaultIntros =["Hey! I'm here to chat, in case you were feeling lonely.",\
                 "Feeling lonely? I'm down to chat.",\
                "Here to chat. I won't judge you for talking to an inanimate object.",\
@@ -70,7 +70,7 @@ def sample_responses(inpTxt,tcount,tlimit):
   
     
 def intro():
-  intro_str = "**********         All By Myself Bot         **********\n"
+  intro_str = "**********All By Myself Bot**********\n"
   body_str = "\nThis is an AI chatbot powered by OpenAI's GPT-3.\
               \n\nThis version of the bot is under the free plan,\
               \nwhich is only limited to three months of usage or 300,000 tokens. \n(1 token = 4 char)\
