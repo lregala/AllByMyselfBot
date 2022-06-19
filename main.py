@@ -20,7 +20,7 @@ exp_msg = "AI Bot has expired! Thanks for checking me out!"
 
   
 #Max tokens per query
-token_limit = 40
+token_limit = 50
 t_usg = rp.getTokenUsage()
 max_tokens=300000
 
@@ -29,10 +29,7 @@ def days_between(d1, d2):
     d2 = datetime.strptime(d2, "%Y-%m-%d")
     return abs((d2 - d1).days)
 
-def countTokens(inpTxt):
-    # 1 token is approximately equal to 4 characters ==> 0.25 tokens/char
-    tokenCount = math.ceil(0.25*len(inpTxt))
-    return tokenCount
+
 
 def expiryCheck(currStr,expStr,tcount,tlimit):
   if currStr >= expStr or tcount >= tlimit:
@@ -84,7 +81,7 @@ def usage(message):
 @bot.message_handler(func=lambda message: True)
 def responder(message):
   query = message.text
-  tokens = countTokens(query)
+  tokens = rp.countTokens(query)
   
   if expiryCheck(current_date,expiry_date,t_usg,max_tokens):
     bot.send_message(message.chat.id,exp_msg)

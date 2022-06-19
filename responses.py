@@ -1,5 +1,6 @@
 from random import randrange
 import oai
+import math
 from replit import db
 
 
@@ -17,7 +18,10 @@ def getBotStatus():
   else:
     db["IsBotActive"]=False
 
-
+def countTokens(inpTxt):
+    # 1 token is approximately equal to 4 characters ==> 0.25 tokens/char
+    tokenCount = math.ceil(0.25*len(inpTxt))
+    return tokenCount
 
 def updateTokenUsage(tcount):
   if "usedTokens" in db.keys():
@@ -61,9 +65,10 @@ def sample_responses(inpTxt,tcount,tlimit):
     #use gpt3 here
     try:
       resp = oai.gpt3(inpTxt,tlimit,0)
+      r_tcount=countTokens(resp)
       print(resp)
       
-      updateTokenUsage(tcount)
+      updateTokenUsage(tcount+r_tcount)
       return resp
     except:
       return "Uh-oh, something went wrong!"
