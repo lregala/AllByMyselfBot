@@ -86,7 +86,7 @@ def run(message):
     query = message.text.split(" ", 2)
     level = int(query[1])
     msg = query[2]
-    tokens = rp.countTokens(query)
+    tokens = rp.countTokens(msg)
     
     if expiryCheck(current_date,expiry_date,t_usg,max_tokens):
       bot.send_message(message.chat.id,exp_msg)
