@@ -77,25 +77,6 @@ def usage(message):
     bot.send_message(message.chat.id,statmsg)
 
 
-@bot.message_handler(func=lambda message: True)
-def responder(message):
-  query = message.text
-  tokens = rp.countTokens(query)
-  
-  if expiryCheck(current_date,expiry_date,t_usg,max_tokens):
-    bot.send_message(message.chat.id,exp_msg)
-  elif query[0]=="/":
-    bot.reply_to(message,"That doesn't work you goof!")
-      
-  else:
-    print(query)
-
-    if rp.getBotStatus():
-      bot.send_message(message.chat.id,rp.sample_responses(query,tokens,token_limit,0))
-
-bot.polling()
-
-
 @bot.message_handler(commands=['run'])
 def run(message):
   query = message.text.split(" ", 2)
@@ -114,5 +95,23 @@ def run(message):
       print(msg)
       if rp.getBotStatus():
         bot.send_message(message.chat.id,rp.sample_responses(msg,tokens,token_limit,level))
+
+
+@bot.message_handler(func=lambda message: True)
+def responder(message):
+  query = message.text
+  tokens = rp.countTokens(query)
+  
+  if expiryCheck(current_date,expiry_date,t_usg,max_tokens):
+    bot.send_message(message.chat.id,exp_msg)
+  elif query[0]=="/":
+    bot.reply_to(message,"That doesn't work you goof!")
+      
+  else:
+    print(query)
+
+    if rp.getBotStatus():
+      bot.send_message(message.chat.id,rp.sample_responses(query,tokens,token_limit,0))
+
 
 bot.polling()
